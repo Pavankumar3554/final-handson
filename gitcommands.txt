@@ -1,0 +1,171 @@
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 ~ (master)
+$ cd C:\finalhandson
+bash: cd: C:finalhandson: No such file or directory
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 ~ (master)
+$ cd C:\final-handson
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson
+$ git init
+Initialized empty Git repository in C:/final-handson/.git/
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (master)
+$ git init
+Initialized empty Git repository in C:/final-handson/.git/
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (master)
+$ git add .
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (master)
+$ git commit -am "final-handson"
+[master (root-commit) 3e32694] final-handson
+ 8 files changed, 2302 insertions(+)
+ create mode 100644 CI&CD/Dockerfile
+ create mode 100644 CI&CD/README.md
+ create mode 100644 CI&CD/static/index.html
+ create mode 100644 CI&CD/static/waves-tiled.png
+ create mode 100644 CI&CD/static/whale300.png
+ create mode 100644 DevOps&Linux.txt
+ create mode 100644 Dockercontainerization.txt
+ create mode 100644 kubernetes.txt
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (master)
+$ git remote add origin https://github.com/Pavankumar3554/final-handson.git
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (master)
+$ git branch -M main
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git push -u origin main
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 111.72 KiB | 15.96 MiB/s, done.
+Total 12 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Pavankumar3554/final-handson.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git add .
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git commit -am "final-handson"
+[main b7556d7] final-handson
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ rename CI&CD/Dockerfile => Dockerfile (100%)
+ rename CI&CD/README.md => README.md (100%)
+ rename {CI&CD/static => static}/index.html (100%)
+ rename {CI&CD/static => static}/waves-tiled.png (100%)
+ rename {CI&CD/static => static}/whale300.png (100%)
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git push -u main
+fatal: 'main' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git push -u https://github.com/Pavankumar3554/devopscomands.git
+To https://github.com/Pavankumar3554/devopscomands.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/Pavankumar3554/devopscomands.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git remote add origin https://github.com/Pavankumar3554/devopscomands.git
+error: remote origin already exists.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git remote rm origin
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git remote add origin https://github.com/Pavankumar3554/devopscomands.git
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git branch -M main
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git push -u main
+fatal: 'main' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git push -u origin main
+To https://github.com/Pavankumar3554/devopscomands.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/Pavankumar3554/devopscomands.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git remote rm origin
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ ^C
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$  git remote add origin https://github.com/Pavankumar3554/final-handson.git
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$  git branch -M main
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$  git push -u origin main
+To https://github.com/Pavankumar3554/final-handson.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/Pavankumar3554/final-handson.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$ git fetch origin main
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 7 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (7/7), 1.93 KiB | 79.00 KiB/s, done.
+From https://github.com/Pavankumar3554/final-handson
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$  git push -u origin main
+To https://github.com/Pavankumar3554/final-handson.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/Pavankumar3554/final-handson.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$  git push --force origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 89.23 KiB | 22.31 MiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Pavankumar3554/final-handson.git
+ + ddab24c...b7556d7 main -> main (forced update)
+
+pkyad@LAPTOP-PKUSJLCA MINGW64 /c/final-handson (main)
+$
