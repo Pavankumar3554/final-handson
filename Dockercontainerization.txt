@@ -1,0 +1,500 @@
+pavan123@LAPTOP-PKUSJLCA:~$ docker run -dt redis
+Unable to find image 'redis:latest' locally
+latest: Pulling from library/redis
+a2abf6c4d29d: Pull complete
+c7a4e4382001: Pull complete
+4044b9ba67c9: Pull complete
+c8388a79482f: Pull complete
+413c8bb60be2: Pull complete
+1abfd3011519: Pull complete
+Digest: sha256:db485f2e245b5b3329fdc7eff4eb00f913e09d8feb9ca720788059fdc2ed8339
+Status: Downloaded newer image for redis:latest
+71eb72cd03638e1d3557bef035a8fb99e39e6dcc387eeafd69545885c8fcc9b7
+pavan123@LAPTOP-PKUSJLCA:~$ docker -v
+Docker version 20.10.11, build dea9396
+pavan123@LAPTOP-PKUSJLCA:~$ docker images
+REPOSITORY                           TAG                                                     IMAGE ID       CREATED        SIZE
+getting-started                      latest                                                  84b0bc29e9dc   8 days ago     454MB
+pavan7989877916/getting_started      latest                                                  84b0bc29e9dc   8 days ago     454MB
+redis                                latest                                                  7614ae9453d1   2 weeks ago    113MB
+mysql                                5.7                                                     c20987f18b13   2 weeks ago    448MB
+node                                 12-alpine                                               106bb94759ad   3 weeks ago    89.5MB
+nicolaka/netshoot                    latest                                                  f4c8dceca780   7 weeks ago    432MB
+docker/desktop-kubernetes            kubernetes-v1.22.4-cni-v0.8.5-critools-v1.17.0-debian   493a106d3678   7 weeks ago    294MB
+k8s.gcr.io/kube-apiserver            v1.22.4                                                 8a5cc299272d   7 weeks ago    128MB
+k8s.gcr.io/kube-scheduler            v1.22.4                                                 721ba97f54a6   7 weeks ago    52.7MB
+k8s.gcr.io/kube-controller-manager   v1.22.4                                                 0ce02f92d3e4   7 weeks ago    122MB
+k8s.gcr.io/kube-proxy                v1.22.4                                                 edeff87e4802   7 weeks ago    104MB
+ubuntu                               latest                                                  ba6acccedd29   2 months ago   72.8MB
+k8s.gcr.io/etcd                      3.5.0-0                                                 004811815584   6 months ago   295MB
+k8s.gcr.io/coredns/coredns           v1.8.4                                                  8d147537fb7d   7 months ago   47.6MB
+docker/desktop-vpnkit-controller     v2.0                                                    8c2c38aa676e   8 months ago   21MB
+docker/desktop-storage-provisioner   v2.0                                                    99f89471f470   8 months ago   41.9MB
+k8s.gcr.io/pause                     3.5                                                     ed210e3e4a5b   9 months ago   683kB
+alpine                               3.5                                                     f80194ae2e0c   2 years ago    4MB
+pavan123@LAPTOP-PKUSJLCA:~$ docker image history redis
+IMAGE          CREATED       CREATED BY                                      SIZE      COMMENT
+7614ae9453d1   2 weeks ago   /bin/sh -c #(nop)  CMD ["redis-server"]         0B
+<missing>      2 weeks ago   /bin/sh -c #(nop)  EXPOSE 6379                  0B
+<missing>      2 weeks ago   /bin/sh -c #(nop)  ENTRYPOINT ["docker-entry…   0B
+<missing>      2 weeks ago   /bin/sh -c #(nop) COPY file:df205a0ef6e6df89…   374B
+<missing>      2 weeks ago   /bin/sh -c #(nop) WORKDIR /data                 0B
+<missing>      2 weeks ago   /bin/sh -c #(nop)  VOLUME [/data]               0B
+<missing>      2 weeks ago   /bin/sh -c mkdir /data && chown redis:redis …   0B
+<missing>      2 weeks ago   /bin/sh -c set -eux;   savedAptMark="$(apt-m…   27.8MB
+<missing>      2 weeks ago   /bin/sh -c #(nop)  ENV REDIS_DOWNLOAD_SHA=5b…   0B
+<missing>      2 weeks ago   /bin/sh -c #(nop)  ENV REDIS_DOWNLOAD_URL=ht…   0B
+<missing>      2 weeks ago   /bin/sh -c #(nop)  ENV REDIS_VERSION=6.2.6      0B
+<missing>      2 weeks ago   /bin/sh -c set -eux;  savedAptMark="$(apt-ma…   4.24MB
+<missing>      2 weeks ago   /bin/sh -c #(nop)  ENV GOSU_VERSION=1.12        0B
+<missing>      2 weeks ago   /bin/sh -c groupadd -r -g 999 redis && usera…   329kB
+<missing>      2 weeks ago   /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      2 weeks ago   /bin/sh -c #(nop) ADD file:09675d11695f65c55…   80.4MB
+pavan123@LAPTOP-PKUSJLCA:~$ docker images history -q redis
+"docker images" requires at most 1 argument.
+See 'docker images --help'.
+
+Usage:  docker images [OPTIONS] [REPOSITORY[:TAG]]
+
+List images
+pavan123@LAPTOP-PKUSJLCA:~$ docker image history -q redis
+7614ae9453d1
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+<missing>
+pavan123@LAPTOP-PKUSJLCA:~$ docker container run alpine hostname
+Unable to find image 'alpine:latest' locally
+latest: Pulling from library/alpine
+59bf1c3509f3: Already exists
+Digest: sha256:21a3deaa0d32a8057914f36584b5288d2e5ecc984380bc0118285c70fa8c9300
+Status: Downloaded newer image for alpine:latest
+fb210207c575
+pavan123@LAPTOP-PKUSJLCA:~$ docker container ls -all
+CONTAINER ID   IMAGE     COMMAND      CREATED              STATUS                          PORTS     NAMES
+fb210207c575   alpine    "hostname"   About a minute ago   Exited (0) About a minute ago             determined_mirzakhani
+pavan123@LAPTOP-PKUSJLCA:~$ docker container run --interactive --tty --rm ubuntu bash
+root@70caa9005f16:/# ls/
+bash: ls/: No such file or directory
+root@70caa9005f16:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@70caa9005f16:/# ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.1  0.0   4112  3416 pts/0    Ss   04:44   0:00 bash
+root        11  0.0  0.0   5900  2856 pts/0    R+   04:45   0:00 ps aux
+root@70caa9005f16:/# cat /etc/issue
+Ubuntu 20.04.3 LTS \n \l
+
+root@70caa9005f16:/# exit
+exit
+pavan123@LAPTOP-PKUSJLCA:~$ cat/etc/issue
+-bash: cat/etc/issue: No such file or directory
+pavan123@LAPTOP-PKUSJLCA:~$ cat /etc/issue
+Ubuntu 20.04.3 LTS \n \l
+
+pavan123@LAPTOP-PKUSJLCA:~$ docker conatiner ls
+docker: 'conatiner' is not a docker command.
+See 'docker --help'
+pavan123@LAPTOP-PKUSJLCA:~$ docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS      NAMES
+71eb72cd0363   redis     "docker-entrypoint.s…"   23 minutes ago   Up 23 minutes   6379/tcp   goofy_leakey
+						TODO-APP:
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> cd app
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker build -t getting-started .       
+[+] Building 77.1s (16/16) FINISHED
+ => [internal] load build definition from Dockerfile                         0.0s
+ => => transferring dockerfile: 216B                                         0.0s 
+ => [internal] load .dockerignore                                            0.0s 
+ => => transferring context: 2B                                              0.0s 
+ => resolve image config for docker.io/docker/dockerfile:1                   4.8s 
+ => [auth] docker/dockerfile:pull token for registry-1.docker.io             0.0s
+ => CACHED docker-image://docker.io/docker/dockerfile:1@sha256:42399d4635ed  0.0s
+ => [internal] load build definition from Dockerfile                         0.0s
+ => [internal] load .dockerignore                                            0.0s 
+ => [internal] load metadata for docker.io/library/node:12-alpine            4.8s 
+ => [auth] library/node:pull token for registry-1.docker.io                  0.0s
+ => [1/5] FROM docker.io/library/node:12-alpine@sha256:05d61228b85c54b5527  12.9s
+ => => resolve docker.io/library/node:12-alpine@sha256:05d61228b85c54b5527e  0.0s 
+ => => sha256:05d61228b85c54b5527e74afc54153eb3572aae005948 1.43kB / 1.43kB  0.0s 
+ => => sha256:372c365de555b9c499bfadf6951cde3d1598732a1da36 1.16kB / 1.16kB  0.0s 
+ => => sha256:16d4be31074d069ea7d796eb58ed2a0a6c72c92d97200 6.53kB / 6.53kB  0.0s 
+ => => sha256:f1265917d9305e25a9e76adfd4b37351e38e600313 24.77MB / 24.77MB  10.4s 
+ => => sha256:550febb8ed3d64773ad7a40aefc70b277f5f6d4b100c2 2.37MB / 2.37MB  4.5s
+ => => sha256:8a58962111cad6109092438806c78cbe4d23fee518e1d0988 449B / 449B  2.4s 
+ => => extracting sha256:f1265917d9305e25a9e76adfd4b37351e38e60031319d45c20  1.8s 
+ => => extracting sha256:550febb8ed3d64773ad7a40aefc70b277f5f6d4b100c21a031  0.2s 
+ => => extracting sha256:8a58962111cad6109092438806c78cbe4d23fee518e1d0988c  0.0s 
+ => [internal] load build context                                            3.2s 
+ => => transferring context: 58.79MB                                         3.2s 
+ => [2/5] RUN apk add --no-cache python2 g++ make                           31.1s 
+ => [3/5] WORKDIR /app                                                       0.1s 
+ => [4/5] COPY . .                                                           1.4s 
+ => [5/5] RUN yarn install --production                                     19.3s 
+ => exporting to image                                                       2.3s
+ => => exporting layers                                                      2.3s 
+ => => writing image sha256:b12a9e3373818ca90205bced2c7a357840317d0eb01df11  0.0s 
+ => => naming to docker.io/library/getting-started                           0.0s 
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -dp 3000:3000 getting-started
+97919a400d6e2ff22673103fd942d40b5e600e0bfa8e0a0c94d47b0fbc77dff7
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docdocker ps
+docdocker : The term 'docdocker' is not recognized as the name of a cmdlet, 
+function, script file, or operable program. Check the spelling of the name, or    
+if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docdocker ps
++ ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docdocker:String) [], CommandNotF  
+   oundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                    NAMES
+97919a400d6e   getting-started   "docker-entrypoint.s…"   2 minutes ago    Up 2 minutes    0.0.0.0:3000->3000/tcp   stoic_driscoll
+71eb72cd0363   redis             "docker-entrypoint.s…"   55 minutes ago   Up 55 minutes   6379/tcp                 goofy_leakey
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker stop 97919a400d6e 
+97919a400d6e
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker build -t pavan7989877916/new-one .
+[+] Building 7.4s (16/16) FINISHED
+ => [internal] load build definition from Dockerfile                         0.0s
+ => => transferring dockerfile: 32B                                          0.0s 
+ => [internal] load .dockerignore                                            0.0s 
+ => => transferring context: 2B                                              0.0s 
+ => resolve image config for docker.io/docker/dockerfile:1                   3.8s 
+ => [auth] docker/dockerfile:pull token for registry-1.docker.io             0.0s
+ => CACHED docker-image://docker.io/docker/dockerfile:1@sha256:42399d4635ed  0.0s
+ => [internal] load build definition from Dockerfile                         0.0s
+ => [internal] load .dockerignore                                            0.0s 
+ => [internal] load metadata for docker.io/library/node:12-alpine            2.5s 
+ => [auth] library/node:pull token for registry-1.docker.io                  0.0s
+ => [internal] load build context                                            0.6s
+ => => transferring context: 596.54kB                                        0.6s 
+ => [1/5] FROM docker.io/library/node:12-alpine@sha256:05d61228b85c54b5527e  0.0s 
+ => CACHED [2/5] RUN apk add --no-cache python2 g++ make                     0.0s
+ => CACHED [3/5] WORKDIR /app                                                0.0s 
+ => CACHED [4/5] COPY . .                                                    0.0s 
+ => => exporting layers                                                      0.0s
+ => => writing image sha256:b12a9e3373818ca90205bced2c7a357840317d0eb01df11  0.0s
+ => => naming to docker.io/pavan7989877916/new-one                           0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+8d3ac3489996: Mounted from library/node
+latest: digest: sha256:899c2559d9f27025d569d6edcf8866731802b0b884060fd8a45b2b9bbdf209d1 size: 2001
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> docker build -t pavan7989877916/final_handson .
+[+] Building 5.8s (28/28) FINISHED
+ => [internal] load build definition from Dockerfile             0.0s
+ => => transferring dockerfile: 32B                              0.0s 
+ => [internal] load .dockerignore                                0.0s 
+ => => transferring context: 34B                                 0.0s 
+ => [internal] load metadata for docker.io/library/python:alpin  4.7s 
+ => [internal] load metadata for docker.io/library/nginx:alpine  4.7s 
+ => [internal] load metadata for docker.io/library/node:12-alpi  4.7s
+ => [auth] library/node:pull token for registry-1.docker.io      0.0s
+ => [auth] library/python:pull token for registry-1.docker.io    0.0s
+ => [auth] library/nginx:pull token for registry-1.docker.io     0.0s 
+ => [app-base 1/5] FROM docker.io/library/node:12-alpine@sha256  0.0s
+ => [stage-6 1/3] FROM docker.io/library/nginx:alpine@sha256:eb  0.0s 
+ => [internal] load build context                                0.9s 
+ => => transferring context: 637.89kB                            0.9s 
+ => [base 1/4] FROM docker.io/library/python:alpine@sha256:556a  0.0s 
+ => CACHED [app-base 2/5] WORKDIR /app                           0.0s
+ => CACHED [app-base 3/5] COPY app/package.json app/yarn.lock .  0.0s 
+ => CACHED [app-base 4/5] COPY app/spec ./spec                   0.0s 
+ => CACHED [app-base 5/5] COPY app/src ./src                     0.0s 
+ => CACHED [app-zip-creator 1/4] COPY app/package.json app/yarn  0.0s 
+ => CACHED [app-zip-creator 2/4] COPY app/spec ./spec            0.0s 
+ => CACHED [app-zip-creator 3/4] COPY app/src ./src              0.0s 
+ => CACHED [app-zip-creator 4/4] RUN apk add zip &&     zip -r   0.0s 
+ => CACHED [stage-6 2/3] COPY --from=app-zip-creator /app.zip /  0.0s 
+ => CACHED [base 2/4] WORKDIR /app                               0.0s 
+ => CACHED [base 3/4] COPY requirements.txt .                    0.0s 
+ => CACHED [base 4/4] RUN pip install -r requirements.txt        0.0s 
+ => CACHED [build 1/2] COPY . .                                  0.0s 
+ => CACHED [build 2/2] RUN mkdocs build                          0.0s 
+ => CACHED [stage-6 3/3] COPY --from=build /app/site /usr/share  0.0s 
+ => exporting to image                                           0.0s 
+ => => exporting layers                                          0.0s 
+ => => writing image sha256:11df905c0e908236458f46eaee5f2948022  0.0s 
+ => => naming to docker.io/pavan7989877916/final_handson         0.0s 
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> docker run -d -p 3002:3000 poavan7989877916/final_handson
+Unable to find image 'poavan7989877916/final_handson:latest' locally
+docker: Error response from daemon: pull access denied for poavan7989877916/final_handson, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> docker run -d -p 3002:3000 poavan7989877916/final_handson        
+Unable to find image 'poavan7989877916/final_handson:latest' locally
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> docker run -d -p 3002:3000 pavan7989877916/final_handson 
+3b1d32541f52d567b159ac3abab12242f02195cb9063f4cf910b4f348707ab20
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> docker push pavan7989877916/final_handson
+Using default tag: latest
+The push refers to repository [docker.io/pavan7989877916/final_handson]
+fd452c60b23d: Pushed
+8a1b3f3b4d5f: Pushed
+419df8b60032: Mounted from library/nginx
+0e835d02c1b5: Mounted from library/nginx
+5ee3266a70bd: Mounted from library/nginx
+3f87f0a06073: Mounted from library/nginx
+1c9c1e42aafa: Mounted from library/nginx
+8d3ac3489996: Mounted from library/python
+latest: digest: sha256:4c03e669b0529b78870b81779787fde3c7dd3719905119ecbee2f248c370bf3d size: 1990
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\ap> docker run -d ubuntu bash -c "shuf -i 1-10000 -n 1 -o /data.txt && tail -f /dev/null"
+7ce4768b8a692c05826a92ce4dc53d2ab3d8952d22d29c4fc7bb761add06567f
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\ap> d8d3ac3489996: Mounted from library/node
+latest: digest: sha256:899c2559d9f27025d569d6edcf8866731802b0b884060fd8a45b2b9bbdf209d1 size: 2001
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\ap> docker run -d ubuntu bash -c "shuf -i 1-10000 -n 1 -o /data.txt && tail -f /dev/null"7ce4768b8a692c05826a92ce4dc53d2ab3d8952d22d29c4fc7bb761add06567f
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\ap> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS      NAMES
+7ce4768b8a69   ubuntu    "bash -c 'shuf -i 1-…"   43 seconds ago   Up 42 seconds              pedantic_newton
+71eb72cd0363   redis     "docker-entrypoint.s…"   2 hours ago      Up 2 hours      6379/tcp   goofy_leakey
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\ap> docker exec 7ce4768b8a69 cat /data.txt
+1565
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app>docker push pavan7989877916/new-one 
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -it ubuntu ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr   
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker volume create todo-db
+todo-db
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -dp 3000:3000 -v todo-db:/etc/todos getting-started
+06356f7feb3998719f0c5788873ad47d76517ba9038799ec807d860631b32f7a
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker volume inspect todo-db
+[
+    {
+        "CreatedAt": "2022-01-08T06:06:24Z",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/todo-db/_data",
+        "Name": "todo-db",
+        "Options": {},
+        "Scope": "local"
+    }
+] 
+						MOUNT WITH SOURCE CODE 
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -dp 3000:3000 `
+>> -w /app -v "$(pwd):/app" `
+>> node:12-alpine `
+>> sh -c "yarn install && yarn run dev"
+Unable to find image 'node:12-alpine' locally
+12-alpine: Pulling from library/node
+59bf1c3509f3: Already exists
+f1265917d930: Already exists                                                      
+550febb8ed3d: Already exists                                                      
+8a58962111ca: Already exists                                                      
+Digest: sha256:05d61228b85c54b5527e74afc54153eb3572aae005948fb068a0f4ebe01f7c1e
+Status: Downloaded newer image for node:12-alpine
+6caf743a0e01bd094295aea024423380ec584b2f9a3fa5b225506b7eaa6a2b40    
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker logs -f 6caf743a0e01
+yarn install v1.22.17
+[1/4] Resolving packages...
+warning Resolution field "ansi-regex@5.0.1" is incompatible with requested version "ansi-regex@^2.0.0"
+warning Resolution field "ansi-regex@5.0.1" is incompatible with requested version "ansi-regex@^3.0.0"
+success Already up-to-date.
+Done in 0.50s.
+yarn run v1.22.17
+$ nodemon src/index.js
+[nodemon] 2.0.13
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node src/index.js`
+Using sqlite database at /etc/todos/todo.db
+Listening on port 3000
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker network create todo-app
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -d `
+>> --network todo-app --network-alias mysql `
+>> -v todo-mysql-data:/var/lib/mysql `
+>> -e MYSQL_ROOT_PASSWORD=secret `
+>> -e MYSQL_DATABASE=todos `
+>> mysql:5.7
+83ce1159a3126442c7e731f41ea83ffb05387a9c5e6c1463c8da386798c08f0f
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                    NAMES
+83ce1159a312   mysql:5.7        "docker-entrypoint.s…"   7 minutes ago    Up 7 minutes    3306/tcp, 33060/tcp      dreamy_greider
+6caf743a0e01   node:12-alpine   "docker-entrypoint.s…"   13 minutes ago   Up 13 minutes   0.0.0.0:3000->3000/tcp   serene_vaughan
+7ce4768b8a69   ubuntu           "bash -c 'shuf -i 1-…"   35 minutes ago   Up 35 minutes                            pedantic_newton
+71eb72cd0363   redis            "docker-entrypoint.s…"   2 hours ago      Up 2 hours      6379/tcp                 goofy_leakey
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker exec -it 83ce1159a312 mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.36 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| todos              |
++--------------------+
+5 rows in set (0.02 sec)    
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -it --network todo-app nicolaka/netshoot
+Unable to find image 'nicolaka/netshoot:latest' locally
+latest: Pulling from nicolaka/netshoot
+97518928ae5f: Already exists
+09706d35e05d: Pull complete
+4996ecc64030: Pull complete
+9a11de879aaa: Pull complete
+44f8e61e69d1: Pull complete
+dcf41a6beeb6: Pull complete
+d4d3a508f57b: Pull complete
+ca86b0e825d1: Pull complete
+7eeba344c2b1: Pull complete
+c52dc2d61c4a: Pull complete
+d04aa1a002c2: Pull complete
+7070cabd1e04: Pull complete
+Digest: sha256:d6942ec583d8e2818f5a5d7a71c303e861a70a11396ad9e9d25b355842e97589
+Status: Downloaded newer image for nicolaka/netshoot:latest
+                    dP            dP                           dP   
+                    88            88                           88
+88d888b. .d8888b. d8888P .d8888b. 88d888b. .d8888b. .d8888b. d8888P
+88'  `88 88ooood8   88   Y8ooooo. 88'  `88 88'  `88 88'  `88   88
+88    88 88.  ...   88         88 88    88 88.  .88 88.  .88   88
+dP    dP `88888P'   dP   `88888P' dP    dP `88888P' `88888P'   dP
+
+Welcome to Netshoot! (github.com/nicolaka/netshoot)
+
+
+
+ 49737ce71f93  ~  dig mysql
+
+; <<>> DiG 9.16.22 <<>> mysql
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7697
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;mysql.                         IN      A
+
+;; ANSWER SECTION:
+mysql.                  600     IN      A       172.18.0.2
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.11#53(127.0.0.11)
+;; WHEN: Sat Jan 08 06:32:58 UTC 2022
+;; MSG SIZE  rcvd: 44
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -dp 3000:3000 `
+>> -w /app -v "$(pwd):/app" `
+>> --network todo-app `
+>> -e MYSQL_HOST=mysql `
+>> -e MYSQL_USER=root `
+>> -e MYSQL_PASSWORD=secret `
+>> -e MYSQL_DB=todos `
+>> node:12-alpine `
+>> sh -c "yarn install && yarn run dev"
+0eabd1153534f47a0d7ab2e92570d9ecda05a073a12e0b8d0a4dbfe0f88a49c3
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker exec -it 83ce1159a312 mysql -p todos
+Enter password: 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.36 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from todo_items;
++--------------------------------------+---------+-----------+
+| id                                   | name    | completed |
++--------------------------------------+---------+-----------+
+| 9191e39b-596c-4b32-890b-dea0cab8c475 | mysql   |         0 |
+| 059155dc-92e0-4852-abae-15e32ef57d75 | hypen r |         0 |
+| 4e222514-a16e-4483-9d53-a8374cae5003 | cr7     |         1 |
+| f5b931a1-1dc2-4ddb-b875-a91e17aa0735 | messi   |         1 |
++--------------------------------------+---------+-----------+
+4 rows in set (0.00 sec)
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker-compose version 
+Docker Compose version v2.2.1
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -dp 3000:3000 `
+>> -w /app -v "$(pwd):/app" `
+>> --network todo-app `
+>> -e MYSQL_HOST=mysql `
+>> -e MYSQL_USER=root `
+>> -e MYSQL_PASSWORD=secret `
+>> -e MYSQL_DB=todos `
+>> node:12-alpine `
+>> sh -c "yarn install && yarn run dev"
+2acc40857714519facb571882e5f1ab036a7d4ea19fb108e5057504e8ac6129e
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker run -d `
+>> --network todo-app --network-alias mysql `
+>> -v todo-mysql-data:/var/lib/mysql `
+>> -e MYSQL_ROOT_PASSWORD=secret `
+>> -e MYSQL_DATABASE=todos `
+>> mysql:5.7
+cc791c02bb9b9f788c464b7201b0fb03b0c5dda7704e9de30691a4d17aaabd3b  
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master\app> docker compose up -d
+[+] Running 1/2
+ - Container app-app-1    Starting                                           1.3s 
+ - Container app-mysql-1  Started                                            1.3s 
+Error response from daemon: driver failed programming external connectivity on endpoint app-app-1 (9b1a2a16672771a574beac5e2330d9081ffc6a9456ca2f03cea49ec76b7077e4): Bind for 0.0.0.0:3000 failed: port is already allocated 
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> docker scan getting-started
+Docker Scan relies upon access to Snyk, a third party provider, do you consent to proceed using Snyk? (y/N)
+y
+
+Testing getting-started...
+
+Package manager:   apk
+Project name:      docker-image|getting-started
+Docker image:      getting-started
+Platform:          linux/amd64
+Base image:        nginx:1.21.5-alpine
+
+✔ Tested 43 dependencies for known vulnerabilities, no vulnerable paths found.
+
+According to our scan, you are currently using the most secure version of the selected base image
+
+For more free scans that keep your images secure, sign up to Snyk at https://dockr.ly/3ePqVcp
+
+
+PS C:\Users\pkyad\Downloads\getting-started-master\getting-started-master> docker image history getting-started
+IMAGE          CREATED       CREATED BY                               
+       SIZE      COMMENT
+11df905c0e90   2 hours ago   COPY /app/site /usr/share/nginx/html # build…   3.6MB     buildkit.dockerfile.v0
+<missing>      2 hours ago   COPY /app.zip /usr/share/nginx/html/assets/a…   1.76MB    buildkit.dockerfile.v0
+<missing>      3 weeks ago   /bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon…   0B
+<missing>      3 weeks ago   /bin/sh -c #(nop)  STOPSIGNAL SIGQUIT           0B
+<missing>      3 weeks ago   /bin/sh -c #(nop)  EXPOSE 80             
+       0B
+<missing>      3 weeks ago   /bin/sh -c #(nop)  ENTRYPOINT ["/docker-entr…   0B
+<missing>      3 weeks ago   /bin/sh -c #(nop) COPY file:09a214a3e07c919a…   4.61kB
+<missing>      3 weeks ago   /bin/sh -c #(nop) COPY file:0fd5fca330dcd6a7…   1.04kB
+<missing>      3 weeks ago   /bin/sh -c #(nop) COPY file:0b866ff3fc1ef5b0…   1.96kB
+<missing>      3 weeks ago   /bin/sh -c #(nop) COPY file:65504f71f5855ca0…   1.2kB
+<missing>      3 weeks ago   /bin/sh -c set -x     && addgroup -g 101 -S …   17.9MB
+<missing>      3 weeks ago   /bin/sh -c #(nop)  ENV PKG_RELEASE=1            0B
+<missing>      3 weeks ago   /bin/sh -c #(nop)  ENV NJS_VERSION=0.7.1        0B
+<missing>      3 weeks ago   /bin/sh -c #(nop)  ENV NGINX_VERSION=1.21.5     0B
+<missing>      3 weeks ago   /bin/sh -c #(nop)  LABEL maintainer=NGINX Do…   0B
+<missing>      8 weeks ago   /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
+<missing>      8 weeks ago   /bin/sh -c #(nop) ADD file:9233f6f2237d79659…   5.59MB 
